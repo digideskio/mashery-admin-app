@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    if user !== null
+        h1 Members
+            div(class='row placeholders')
+                div(class='col-xs-6 col-sm-3 placeholder')
+                  button(type='button', class='btn btn-primary btn-lg btn-block') Export
+    else
+        div.jumbotron
+            h1 Welcome
+            p This is an app.

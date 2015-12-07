@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+    if user !== null
+        form(method='post')
+            div.form-group
+                label(for='startDateTime') Start Date
+                input(type='datetime-local',value='2015-01-01T00:00:00Z', pattern='201[0-6]-[0-1][0-9]-[0-3][0-9]T[0-2][0-9]:[0-6][0-9]:[0-6][0-9]Z', id='datetimepicker', name='startDateTime')
+                label(for='endDateTime') End Date
+                input(type='datetime-local',value='2015-01-01T00:00:00Z', pattern='201[0-6]-[0-1][0-9]-[0-3][0-9]T[0-2][0-9]:[0-6][0-9]:[0-6][0-9]Z', id='datetimepicker', name='endDateTime')
+                button(type='submit', class='btn btn-default') Submit
+    else
+        div.jumbotron
+            h1 Welcome
+            p This is an app.

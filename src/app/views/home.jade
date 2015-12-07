@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    if user !== null
+        h1 Welcome
+        p Logged In!
+
+    else
+        div.jumbotron
+            h1 Welcome
+            p This is an app.

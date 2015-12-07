@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    if user !== null
+        h1 Reporting
+            div(class='row placeholders')
+                div(class='col-xs-6 col-sm-3 placeholder')
+                  a(href='/reports/query',type='button', class='btn btn-primary btn-lg btn-block') Run Query
+
+    else
+        div.jumbotron
+            h1 Welcome
+            p This is an app.

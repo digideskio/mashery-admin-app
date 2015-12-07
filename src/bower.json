@@ -1,0 +1,24 @@
+{
+  "name": "mashery-admin-app",
+  "version": "0.0.1",
+  "homepage": "https://github.com/gbraad/passport-saml-example",
+  "authors": [
+    "Jeremy Pollock <jpollock911@gmail.com>"
+  ],
+  "description": "Example app for Mashery V3 API",
+  "main": "app.js",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0"
+  }
+}

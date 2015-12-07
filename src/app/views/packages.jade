@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    if user !== null
+        h1 Packages
+            div(class='row placeholders')
+                div(class='col-xs-6 col-sm-3 placeholder')
+                  button(type='button', class='btn btn-primary btn-lg btn-block') Health Check
+                div(class='col-xs-6 col-sm-3 placeholder')
+                  button(type='button', class='btn btn-primary btn-lg btn-block') Report
+    else
+        div.jumbotron
+            h1 Welcome
+            p This is an app.
