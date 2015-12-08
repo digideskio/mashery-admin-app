@@ -32,6 +32,7 @@ app.configure(function () {
 
 app.configure('development', function () {
   console.log ("Development mode.");
+  console.log (__dirname);
   app.use(express.errorHandler());
 });
 app.configure ('production', function () {

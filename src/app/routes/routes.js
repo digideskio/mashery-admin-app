@@ -2,7 +2,6 @@ var mashery_api_authentication = require('../../lib/mashery_api_authentication')
 
 module.exports = function(app, config, passport) {
 	app.get("/", function(req, res) {
-		
 		if(req.isAuthenticated()) {
 
 			res.render("home",
