@@ -11,8 +11,8 @@ var env = process.env.NODE_ENV || 'development',
 require('./config/passport')(passport, config);
 
 
-var privateKey  = fs.readFileSync('/Users/jeremypollock/nginx.key', 'utf8');
-var certificate = fs.readFileSync('/Users/jeremypollock/nginx.crt', 'utf8');
+var privateKey  = fs.readFileSync(process.env.KEY, 'utf8');
+var certificate = fs.readFileSync(process.env.CERTIFICATE, 'utf8');
 var credentials = {key: privateKey, cert: certificate};
 
 var app = express();
