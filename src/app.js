@@ -1,13 +1,19 @@
 var express = require('express'),
   http = require('http'),
+  https = require('https'),
   path = require('path'),
-  passport = require("passport");
+  passport = require("passport"),
+  fs = require("fs");
 
 var env = process.env.NODE_ENV || 'development',
   config = require('./config/config')[env];
 
 require('./config/passport')(passport, config);
 
+
+var privateKey  = fs.readFileSync('/Users/jeremypollock/nginx.key', 'utf8');
+var certificate = fs.readFileSync('/Users/jeremypollock/nginx.crt', 'utf8');
+var credentials = {key: privateKey, cert: certificate};
 
 var app = express();
 
@@ -66,6 +72,7 @@ require('./app/routes/reports/routes')(app, config, passport);
 require('./app/routes/services/routes')(app, config, passport);
 
 
-http.createServer(app).listen(app.get('port'), function () {
+/*http.createServer(app).listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));
-});
+});*/
+https.createServer(credentials, app).listen(app.get('port'));

@@ -17,12 +17,9 @@ RUN cd /src; bower install --allow-root
 
 # Bundle app source
 COPY src /src/
-#COPY src/config/* /src/config/
-#COPY src/app/* /src/app/
-#COPY src/app/views/* /src/app/views/
-#COPY src/app/views/* /src/app/views/
 
 EXPOSE  8080
+EXPOSE  443
 
 CMD ["node", "/src/app.js"]
 
