@@ -1,18 +1,10 @@
 var express = require('express'),
   http = require('http'),
   https = require('https'),
-  path = require('path'),
-  passport = require("passport"),
-  fs = require("fs");
-
+  path = require('path');
+  
 var env = process.env.NODE_ENV || 'development',
   config = require('./config/config')[env];
-
-require('./config/passport')(passport, config);
-
-var privateKey  = fs.readFileSync(process.env.KEY, 'utf8');
-var certificate = fs.readFileSync(process.env.CERTIFICATE, 'utf8');
-var credentials = {key: privateKey, cert: certificate};
 
 var app = express();
 
@@ -25,12 +17,9 @@ app.configure(function () {
   app.use(express.bodyParser());
   app.use(express.session(
     {
-      secret: 'this shit hits',
+      secret: 'mashery will hit',
       cookie: { maxAge: 60000 }
     }));
-  app.use(passport.initialize());
-  app.use(passport.session());
-  app.use(express.methodOverride());
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
 });
@@ -66,9 +55,9 @@ app.use(function(req, res, next){
 });
 
 
-require('./app/routes/routes')(app, config, passport);
-require('./app/routes/reports/routes')(app, config, passport);
-require('./app/routes/services/routes')(app, config, passport);
+require('./app/routes/routes')(app, config);
+require('./app/routes/reports/routes')(app, config);
+require('./app/routes/services/routes')(app, config);
 
 
 http.createServer(app).listen(app.get('port'), function () {

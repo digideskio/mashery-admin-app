@@ -4,9 +4,10 @@ var request = require('request')
 exports = module.exports = function authenticate(req,res,next) {
     var post_data = {
         'area_uuid': req.body.areaUuid,
-        'username': req.user.id,
+        'username': req.body.username,
         'password': req.body.password
     };
+    console.log('http://' + process.env.WEBDB_PORT_5432_TCP_ADDR + ':' + process.env.WEBDB_PORT_5432_TCP_PORT + '/authentication');
     request.post({url:'http://' + process.env.WEBDB_PORT_5432_TCP_ADDR + ':' + process.env.WEBDB_PORT_5432_TCP_PORT + '/authentication', form: post_data}, function(err,httpResponse,body) { 
         console.log(body);
         if (httpResponse.statusCode == 200) {

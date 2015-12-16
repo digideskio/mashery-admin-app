@@ -26,25 +26,21 @@ html
 
         div.container-fluid
             div.row
-                if user !== null
-                    div(class='col-sm-3 col-md-2 sidebar')
-                        ul(class='nav nav-sidebar')
-                            li.active
-                                a(href='#') Overview
-                            li
-                                a(href='/services') Services
-                            li
-                                a(href='/packages') Packages
-                            li
-                                a(href='/members') Members
-                            li
-                                a(href='/reports') Reports
+                div(class='col-sm-3 col-md-2 sidebar')
+                    ul(class='nav nav-sidebar')
+                        li.active
+                            a(href='#') Overview
+                        li
+                            a(href='/services') Services
+                        li
+                            a(href='/packages') Packages
+                        li
+                            a(href='/members') Members
+                        li
+                            a(href='/reports') Reports
 
-                    div(class='col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main')
-                        block content
-                else
-                    div(class='col-sm-12 col-md-12 main')
-                        block content
+                div(class='col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main')
+                    block content
         script(src='/bower_components/jquery/dist/jquery.min.js')
         script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
         block scripts

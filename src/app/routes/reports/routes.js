@@ -1,32 +1,12 @@
 var querystring = require('querystring');
 var request = require('request');
-module.exports = function(app, config, passport) {
+module.exports = function(app, config) {
     app.get("/reports", function(req, res) {
-        if(req.isAuthenticated()) {
-          res.render("reports",
-            {
-                user : req.user
-            });
-        } else {
-            res.render("reports",
-                {
-                    user : null
-                });
-        }
+          res.render("reports");
     });
 
     app.get("/reports/query", function(req, res) {
-        //if(req.isAuthenticated()) {
-          res.render("reports/query",
-            {
-                user : req.user
-            });
-        /*} else {
-            res.render("reports/query",
-                {
-                    user : null
-                });
-        }*/
+          res.render("reports/query");
     });
 
     app.post("/reports/query", function(req, res) {

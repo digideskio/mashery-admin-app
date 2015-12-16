@@ -1,11 +1,6 @@
 extends layout
 
 block content
-    if user !== null
+    div.jumbotron
         h1 Welcome
-        p Logged In!
-
-    else
-        div.jumbotron
-            h1 Welcome
-            p This is an app.
+        a(href='/profile') Setup Mashery API Access
