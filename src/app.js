@@ -10,7 +10,6 @@ var env = process.env.NODE_ENV || 'development',
 
 require('./config/passport')(passport, config);
 
-
 var privateKey  = fs.readFileSync(process.env.KEY, 'utf8');
 var certificate = fs.readFileSync(process.env.CERTIFICATE, 'utf8');
 var credentials = {key: privateKey, cert: certificate};
@@ -72,7 +71,7 @@ require('./app/routes/reports/routes')(app, config, passport);
 require('./app/routes/services/routes')(app, config, passport);
 
 
-/*http.createServer(app).listen(app.get('port'), function () {
+http.createServer(app).listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));
-});*/
-https.createServer(credentials, app).listen(app.get('port'));
+});
+//https.createServer(credentials, app).listen(app.get('port'));
